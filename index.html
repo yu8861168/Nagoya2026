@@ -363,6 +363,68 @@
   .legend-item { display: flex; align-items: center; gap: 5px; }
   .legend-dot { width: 8px; height: 8px; border-radius: 50%; }
 
+
+  /* RESTAURANT ACCORDION */
+  .resto-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+    padding: 7px 12px;
+    background: rgba(93,122,42,0.08);
+    border: 1px solid rgba(93,122,42,0.2);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--food);
+    width: fit-content;
+    user-select: none;
+    transition: all 0.15s;
+  }
+  .resto-toggle:hover { background: rgba(93,122,42,0.15); }
+  .resto-toggle .arrow { transition: transform 0.2s; font-size: 10px; }
+  .resto-toggle.open .arrow { transform: rotate(90deg); }
+
+  .resto-panel {
+    display: none;
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.07);
+  }
+  .resto-panel.open { display: block; }
+
+  .resto-card {
+    background: white;
+    padding: 12px 14px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .resto-card:last-child { border-bottom: none; }
+  .resto-card-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .resto-card-body { flex: 1; min-width: 0; }
+  .resto-card-name { font-weight: 600; font-size: 13px; color: var(--ink); margin-bottom: 2px; }
+  .resto-card-tag { 
+    display: inline-block; font-size: 10px; padding: 1px 7px; 
+    border-radius: 20px; background: var(--washi); color: var(--muted);
+    margin-bottom: 4px; margin-right: 4px;
+  }
+  .resto-card-desc { font-size: 12px; color: var(--muted); line-height: 1.6; margin-bottom: 6px; }
+  .resto-card-links { display: flex; gap: 8px; flex-wrap: wrap; }
+  .resto-card-link {
+    font-size: 11px; padding: 3px 10px; border-radius: 20px;
+    text-decoration: none; font-weight: 500; transition: opacity 0.15s;
+    display: inline-flex; align-items: center; gap: 3px;
+  }
+  .resto-card-link:hover { opacity: 0.75; }
+  .resto-card-link.gmap { background: #E8F5E9; color: #2E7D32; }
+  .resto-card-link.web { background: #E3F2FD; color: #1565C0; }
+  .resto-card-link.hours { background: var(--washi); color: var(--muted); }
+  .resto-rating { font-size: 11px; color: #c4933f; margin-bottom: 4px; }
+
   /* MOBILE */
   @media (max-width: 500px) {
     .tl-item { grid-template-columns: 66px 1px 1fr; gap: 0 12px; }
@@ -699,16 +761,16 @@
       </div>
 
       <div class="tl-item">
-        <div class="tl-time"><strong>08:45</strong></div>
+        <div class="tl-time"><strong>09:07</strong>→09:19</div>
         <div class="tl-line"><div class="tl-dot transit"></div><div class="tl-connector"></div></div>
         <div class="tl-content">
           <div class="tl-main"><div class="tl-icon">🚌</div><div class="tl-label">三重交通 55號巴士 伊勢市站→內宮</div></div>
-          <div class="tl-note">伊勢市駅前搭乘　票價：¥270　車程：約12分鐘　08:57抵達內宮前</div>
+          <div class="tl-note">伊勢市駅前 10番のりば　票價：¥520　車程：12分鐘　09:19抵達內宮前</div>
         </div>
       </div>
 
       <div class="tl-item">
-        <div class="tl-time"><strong>09:00</strong>→10:00</div>
+        <div class="tl-time"><strong>09:20</strong>→10:20</div>
         <div class="tl-line"><div class="tl-dot activity"></div><div class="tl-connector"></div></div>
         <div class="tl-content">
           <div class="tl-main"><div class="tl-icon">⛩️</div><div class="tl-label">伊勢神宮 內宮參拜</div></div>
@@ -741,7 +803,7 @@
         <div class="tl-content">
           <div class="tl-main"><div class="tl-icon">🎟️</div><div class="tl-label">鳥羽水族館 入館</div></div>
           <div class="tl-note">入場費：¥2,800　入館後先看ジュゴン，提早到ラッコ館搶位</div>
-          <div class="tl-badges"><span class="badge b-warn">⚠️ 15:30前務必離場</span></div>
+          <div class="tl-badges"><span class="badge b-warn">⚠️ 15:50前務必離場</span></div>
         </div>
       </div>
 
@@ -784,11 +846,11 @@
       </div>
 
       <div class="tl-item">
-        <div class="tl-time"><strong>15:20</strong></div>
+        <div class="tl-time"><strong>15:50</strong></div>
         <div class="tl-line"><div class="tl-dot warn"></div><div class="tl-connector"></div></div>
         <div class="tl-content">
           <div class="tl-main"><div class="tl-icon">🚶</div><div class="tl-label">步行至鳥羽站</div></div>
-          <div class="tl-note">徒步約5分鐘　務必準時！志摩之風不等人</div>
+          <div class="tl-note">水族館→鳥羽站徒步約10分鐘　15:50出發、16:00前抵達月台</div>
           <div class="tl-badges"><span class="badge b-warn">⚠️ 務必準時</span></div>
         </div>
       </div>
@@ -926,62 +988,137 @@
       <div class="day-title">犬山古城 × 長良川鵜飼</div>
       <div class="day-date">2026年 6月14日（日）</div>
     </div>
-    <div class="info-box">💡 上午將大行李寄放三交Inn，攜帶輕便過夜包出發</div>
+    <div class="info-box">💡 上午將大行李寄放三交Inn，攜帶過夜包出發</div>
     <div class="timeline">
 
       <div class="tl-item">
-        <div class="tl-time"><strong>08:50</strong>→09:15</div>
-        <div class="tl-line"><div class="tl-dot transit"></div><div class="tl-connector"></div></div>
+        <div class="tl-time"><strong>08:30</strong></div>
+        <div class="tl-line"><div class="tl-dot hotel"></div><div class="tl-connector"></div></div>
         <div class="tl-content">
-          <div class="tl-main"><div class="tl-icon">🚃</div><div class="tl-label">名鐵 名古屋→犬山</div></div>
-          <div class="tl-note">名鐵名古屋站犬山線特急　票價：¥590　車程：約25分鐘</div>
+          <div class="tl-main"><div class="tl-icon">🧳</div><div class="tl-label">大行李寄放三交Inn，帶過夜包出發</div></div>
         </div>
       </div>
 
       <div class="tl-item">
-        <div class="tl-time"><strong>09:15</strong>→13:00</div>
+        <div class="tl-time"><strong>09:00</strong>→09:25</div>
+        <div class="tl-line"><div class="tl-dot transit"></div><div class="tl-connector"></div></div>
+        <div class="tl-content">
+          <div class="tl-main"><div class="tl-icon">🚃</div><div class="tl-label">名鐵 名古屋→犬山</div></div>
+          <div class="tl-note">名鐵名古屋站犬山線　票價：¥590　車程：約25分鐘</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time"><strong>09:30</strong>→12:30</div>
         <div class="tl-line"><div class="tl-dot activity"></div><div class="tl-connector"></div></div>
         <div class="tl-content">
           <div class="tl-main"><div class="tl-icon">🏯</div><div class="tl-label">國寶犬山城 ＋ 城下町散策</div></div>
-          <div class="tl-note">步行至犬山城約15分鐘　入場費：¥550　午餐在城下町解決</div>
+          <div class="tl-note">步行至犬山城約15分鐘　入場費：¥550</div>
           <div class="tl-badges"><span class="badge b-gold">國寶級建築</span></div>
         </div>
       </div>
 
       <div class="tl-item">
-        <div class="tl-time"><strong>13:10</strong>→13:50</div>
+        <div class="tl-time"><strong>12:30</strong>→13:30</div>
+        <div class="tl-line"><div class="tl-dot food"></div><div class="tl-connector"></div></div>
+        <div class="tl-content">
+          <div class="tl-main"><div class="tl-icon">🍱</div><div class="tl-label">城下町午餐</div></div>
+          <div class="tl-note">城下町內各式餐廳　可邊散策邊選擇</div>
+
+        <div style="padding-left:24px;">
+          <div class="resto-toggle" onclick="toggleResto('resto-d5')">
+            🍽️ 餐廳推薦 <span class="arrow">▶</span>
+          </div>
+          <div class="resto-panel" id="resto-d5">
+            
+        <div class="resto-card">
+          <div class="resto-card-icon">🍢</div>
+          <div class="resto-card-body">
+            <div class="resto-card-name">山田五平餅店</div>
+            <span class="resto-card-tag">食べ歩き</span><span class="resto-card-tag">五平餅</span><span class="resto-card-tag">犬山名物</span>
+            <div class="resto-rating">⭐⭐⭐⭐ 4.2 (362評)</div>
+            <div class="resto-card-desc">城下町食べ歩き代表！五平餅全手工製作，刷上芝麻・核桃・花生特製醬烤製，香氣逼人。¥200–300。</div>
+            <div class="resto-card-links"><a class="resto-card-link gmap" href="https://maps.google.com/?cid=ChIJN1hn-YoOA2ARFG44QnUIbww" target="_blank">📍 Google Maps</a><span class="resto-card-link hours">🕐 週五~日 11:00–16:30（週一~四休）</span></div>
+          </div>
+        </div>
+        <div class="resto-card">
+          <div class="resto-card-icon">🏯</div>
+          <div class="resto-card-body">
+            <div class="resto-card-name">本町茶寮</div>
+            <span class="resto-card-tag">午餐</span><span class="resto-card-tag">田楽</span><span class="resto-card-tag">古民家カフェ</span>
+            <div class="resto-rating">⭐⭐⭐⭐ 3.8 (412評)</div>
+            <div class="resto-card-desc">築100年古民家改建的和カフェ，犬山名物田楽（豆腐・蒟蒻・生麩刷各種味噌）。彩り田楽御膳 ¥1,380、茶そば田楽御膳 ¥1,480。</div>
+            <div class="resto-card-links"><a class="resto-card-link gmap" href="https://maps.google.com/?cid=ChIJq3V6UYoOA2ARTLlc0Ez9JvU" target="_blank">📍 Google Maps</a><span class="resto-card-link hours">🕐 11:00–17:00（最後點餐15:30）</span></div>
+          </div>
+        </div>
+        <div class="resto-card">
+          <div class="resto-card-icon">☕</div>
+          <div class="resto-card-body">
+            <div class="resto-card-name">むすび茶屋</div>
+            <span class="resto-card-tag">咖啡廳</span><span class="resto-card-tag">和雜貨</span><span class="resto-card-tag">休息推薦</span>
+            <div class="resto-rating">⭐⭐⭐⭐ 4.1 (125評)</div>
+            <div class="resto-card-desc">和風雜貨＋和カフェ，抹茶提拉米蘇為招牌。外帶「みたら柴だんご」¥400，可愛又好吃。有 Wi-Fi 和充電線。</div>
+            <div class="resto-card-links"><a class="resto-card-link gmap" href="https://maps.google.com/?cid=ChIJ087MAy4PA2ARm1EbXR3NT3k" target="_blank">📍 Google Maps</a><span class="resto-card-link hours">🕐 10:00–17:00</span></div>
+          </div>
+        </div>
+        <div class="resto-card">
+          <div class="resto-card-icon">🍵</div>
+          <div class="resto-card-body">
+            <div class="resto-card-name">豆腐かふぇ 浦嶌</div>
+            <span class="resto-card-tag">午餐</span><span class="resto-card-tag">豆腐料理</span><span class="resto-card-tag">老舗</span>
+            <div class="resto-rating">⭐⭐⭐⭐ 4.1 (280評)</div>
+            <div class="resto-card-desc">創業170年老豆腐店的和カフェ。午餐僅供「玉手箱会席」，CP值極高但常有人排隊。豆乳シフォンケーキ清爽不甜。</div>
+            <div class="resto-card-links"><a class="resto-card-link gmap" href="https://maps.google.com/?cid=ChIJixkxhYoOA2AR_i9NdPqnU5U" target="_blank">📍 Google Maps</a><span class="resto-card-link hours">🕐 11:00–15:00（週二休）</span></div>
+          </div>
+        </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time"><strong>13:30</strong>→14:10</div>
         <div class="tl-line"><div class="tl-dot transit"></div><div class="tl-connector"></div></div>
         <div class="tl-content">
           <div class="tl-main"><div class="tl-icon">🚃</div><div class="tl-label">名鐵 犬山→名鐵岐阜</div></div>
-          <div class="tl-note">票價：¥590　車程：約40分鐘</div>
+          <div class="tl-note">直達不換車　票價：¥510　車程：約40分鐘</div>
         </div>
       </div>
 
       <div class="tl-item">
-        <div class="tl-time"><strong>14:30</strong>→16:30</div>
+        <div class="tl-time"><strong>14:10</strong>→15:00</div>
         <div class="tl-line"><div class="tl-dot activity"></div><div class="tl-connector"></div></div>
         <div class="tl-content">
-          <div class="tl-main"><div class="tl-icon">🗼</div><div class="tl-label">岐阜市區景點（二選一）</div></div>
-          <div class="tl-note">A. 金神社（金色鳥居，洗錢求財儀式）<br>B. 岐阜城＋纜車（金華山頂俯瞰長良川）纜車費：¥1,100</div>
+          <div class="tl-main"><div class="tl-icon">🚶</div><div class="tl-label">岐阜市區散策</div></div>
+          <div class="tl-note">柳ケ瀬商店街周邊　順路前往飯店</div>
         </div>
       </div>
 
       <div class="tl-item">
-        <div class="tl-time"><strong>17:00</strong></div>
+        <div class="tl-time"><strong>15:00</strong></div>
         <div class="tl-line"><div class="tl-dot hotel"></div><div class="tl-connector"></div></div>
         <div class="tl-content">
           <div class="tl-main"><div class="tl-icon">🏨</div><div class="tl-label">長良川都酒店 Check-in</div></div>
-          <div class="tl-note">長良川河畔，對面即是鵜飼乘船場　飯店對岸可見金華山夜景</div>
+          <div class="tl-note">長良川河畔，對面即是鵜飼乘船場</div>
         </div>
       </div>
 
       <div class="tl-item">
-        <div class="tl-time"><strong>18:15</strong>→20:30</div>
+        <div class="tl-time"><strong>15:00</strong>→18:30</div>
+        <div class="tl-line"><div class="tl-dot activity"></div><div class="tl-connector"></div></div>
+        <div class="tl-content">
+          <div class="tl-main"><div class="tl-icon">🛒</div><div class="tl-label">自由時間：超市買便當・川原町散策・梳洗休息</div></div>
+          <div class="tl-note">在超市購買便當帶上船享用　川原町老街步行即達</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-time"><strong>18:45</strong>→20:30</div>
         <div class="tl-line"><div class="tl-dot activity"></div><div class="tl-connector"></div></div>
         <div class="tl-content">
           <div class="tl-main"><div class="tl-icon">🦅</div><div class="tl-label">長良川鵜飼觀賞</div></div>
-          <div class="tl-note">飯店對面即是乘船場　建議事先訂鵜飼便當在船上享用</div>
-          <div class="tl-badges"><span class="badge b-warn">⚠️ 需提前預約</span><span class="badge b-gold">傳統文化體驗</span></div>
+          <div class="tl-note">飯店對面乘船場　18:45 出船　自備便當飲料上船享用</div>
+          <div class="tl-badges"><span class="badge b-green">✅ 已預約</span><span class="badge b-gold">傳統文化體驗</span></div>
         </div>
       </div>
 
@@ -996,14 +1133,13 @@
         </a>
         <a class="link-card" href="https://www.ukai-gifucity.jp/yoyaku.html" target="_blank">
           <div class="link-card-icon">🦅</div>
-          <div class="link-card-text"><div class="link-card-name">鵜飼觀覽船預約</div><div class="link-card-desc">ぎふ長良川の鵜飼</div></div>
+          <div class="link-card-text"><div class="link-card-name">鵜飼觀覽船</div><div class="link-card-desc">✅ 18:45 已預約</div></div>
           <div class="link-card-arrow">→</div>
         </a>
       </div>
     </div>
   </div>
 
-  <!-- ════════════════ DAY 6 ════════════════ -->
   <div class="day-section" id="day-5">
     <div class="day-header">
       <div class="day-num">Day 6 · 第六天</div>
@@ -1045,6 +1181,25 @@
         <div class="tl-content">
           <div class="tl-main"><div class="tl-icon">☕</div><div class="tl-label">客美多咖啡（Komeda）早午餐</div></div>
           <div class="tl-note">名古屋式早午餐文化　小倉紅豆吐司、招牌咖啡　預算：約¥1,000</div>
+
+        <div style="padding-left:24px;">
+          <div class="resto-toggle" onclick="toggleResto('resto-d6')">
+            🍽️ 餐廳推薦 <span class="arrow">▶</span>
+          </div>
+          <div class="resto-panel" id="resto-d6">
+            
+        <div class="resto-card">
+          <div class="resto-card-icon">☕</div>
+          <div class="resto-card-body">
+            <div class="resto-card-name">Komeda's Coffee（客美多咖啡）名古屋駅西店</div>
+            <span class="resto-card-tag">早午餐</span><span class="resto-card-tag">名古屋式モーニング</span><span class="resto-card-tag">必訪</span>
+            <div class="resto-rating">⭐⭐⭐⭐ 3.7 (1,101評)</div>
+            <div class="resto-card-desc">名古屋發源的咖啡連鎖，名物「小倉紅豆吐司」厚切吐司配紅豆泥，早上點咖啡免費附吐司。預算約 ¥1,000。</div>
+            <div class="resto-card-links"><a class="resto-card-link gmap" href="https://maps.google.com/?cid=ChIJ67ovT-92A2ARqxs1wOFBdHY" target="_blank">📍 Google Maps</a><span class="resto-card-link hours">🕐 07:00–22:00（週日至21:00）</span></div>
+          </div>
+        </div>
+          </div>
+        </div>
         </div>
       </div>
 
@@ -1126,6 +1281,14 @@
 </div><!-- /main -->
 
 <script>
+
+function toggleResto(id) {
+  const panel = document.getElementById(id);
+  const toggle = panel.previousElementSibling;
+  panel.classList.toggle('open');
+  toggle.classList.toggle('open');
+}
+
 function showDay(idx) {
   document.querySelectorAll('.day-section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
